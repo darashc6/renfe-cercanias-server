@@ -3,23 +3,30 @@ import mongoose from "mongoose";
 import cors from "cors";
 import "dotenv/config";
 import AnnouncementRoutes from "./routes/AnnouncementsRoutes.js";
-
+import RailNetworkRoutes from "./routes/RailNetworksRoutes.js";
+import FareDescriptionRoutes from "./routes/FareDescriptionRoutes.js";
+import NewsRoutes from "./routes/NewsRoutes.js";
+import DiscountFareRoutes from "./routes/DiscountFareRoutes.js";
 
 const app = express();
 
 // Middlewares
 app.use(express.json());
 app.use(cors());
-app.use('/announcements', AnnouncementRoutes);
+app.use("/announcements", AnnouncementRoutes);
+app.use("/rail-networks", RailNetworkRoutes);
+app.use("/fare-description", FareDescriptionRoutes);
+app.use("/news", NewsRoutes);
+app.use("/discount-fares", DiscountFareRoutes);
 
 // Index endpoint
 app.use("/", (req, res) => {
-    res.send("Hello World!");
-})
+  res.send("Hello World!");
+});
 
-mongoose.connect("mongodb+srv://renfe-cercanias:renfe-cercanias@renfe-cercanias.phwzc.mongodb.net/renfe-cercanias-api?retryWrites=true&w=majority").then(() => {
-    console.log("Connected to MongoDB Atlas")
-    app.listen(5000, () => {
-        console.log("Server started")
-    })
-})
+mongoose.connect(process.env.MONGODB_ATLAS_URL).then(() => {
+  console.log("Connected to MongoDB Atlas");
+  app.listen(process.env.PORT || 5000, () => {
+    console.log("Server started");
+  });
+});
