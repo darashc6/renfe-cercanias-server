@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Email</title>
+</head>
+
+<body>
+    {{#if userTemplate}}
+        <p>Estimado usuario,</p>
+
+        <p>Hemos recibido su solicitud</p>
+    {{/if}}
+
+    <div>
+        <p>
+            Tipo de petición: {{ petitionType }} <br>
+            Núcleo: Cercanías {{ railNetworkName }} <br>
+        </p>
+    </div>
+
+    <div>
+        <p>
+            <i>Datos Personales:</i> <br>
+            Nombre: {{ firstName }} <br>
+            Primer apellido: {{ firstSurname }} <br>
+            {{#if secondSurname}}
+            Segundo apellido: {{ secondSurname }} <br>
+            {{/if}}
+            Email: {{ email }} <br>
+            {{#if phoneNumber}}
+            Número de telefono: {{ phoneNumber }}
+            {{/if}}
+        </p>
+    </div>
+
+    <div>
+        <p>
+            <i>Comentario:</i> <br>
+            {{ comment }}
+        </p>
+    </div>
+
+    {{#if userTemplate}}
+        <p>Gracias por contactar con nosotros. En breve, nos pondremos en contacto con usted para responderle</p>
+
+        <p>Atentamente,</p>
+
+        <p>Renfe Cercanias</p>
+    {{/if}}
+</body>
+
+</html>

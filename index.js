@@ -7,6 +7,7 @@ import RailNetworkRoutes from "./routes/RailNetworksRoutes.js";
 import FareDescriptionRoutes from "./routes/FareDescriptionRoutes.js";
 import NewsRoutes from "./routes/NewsRoutes.js";
 import DiscountFareRoutes from "./routes/DiscountFareRoutes.js";
+import CustomerServiceFormRoutes from "./routes/CustomerServiceFormRoutes.js";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use("/rail-networks", RailNetworkRoutes);
 app.use("/fare-description", FareDescriptionRoutes);
 app.use("/news", NewsRoutes);
 app.use("/discount-fares", DiscountFareRoutes);
+app.use("/customer-service", CustomerServiceFormRoutes);
 
 // Index endpoint
 app.use("/", (req, res) => {
