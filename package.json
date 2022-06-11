@@ -25,6 +25,7 @@
     "mongoose": "^6.2.8",
     "nodemailer": "^6.7.3",
     "nodemailer-express-handlebars": "^5.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "stripe": "^9.2.0"
   }
 }

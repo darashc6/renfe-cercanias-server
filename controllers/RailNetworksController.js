@@ -26,6 +26,12 @@ export const getRailNetwork = (req, res) => {
       path: "fares",
       populate: "fareDescription",
     })
-    .then((railNetwork) => res.status(200).json(railNetwork))
-    .catch((error) => res.status(400).json({ message: error }));
+    .then((railNetwork) => {
+      if (!railNetwork) {
+        return res.status(404).json({ message: "Not found" });
+      }
+
+      res.status(200).json(railNetwork);
+    })
+    .catch((error) => res.status(404).json({ message: error }));
 };

@@ -51,7 +51,7 @@ export const sendCustomerServiceForm = (req, res) => {
 
   let mailOptions = {
     from: `Atencion al Cliente - Renfe Cercanias <${process.env.NODEMAILER_USER}>`,
-    to: "business.cercanias@zohomail.eu",
+    to: process.env.NODEMAILER_AUX_ACCOUNT,
     subject: `Nuevo email - Cercanías ${railNetworkName} - ${email}`,
     template: "email",
     context: mailContext,

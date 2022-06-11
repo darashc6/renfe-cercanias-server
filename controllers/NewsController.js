@@ -1,7 +1,7 @@
 import News from "../models/News.js";
 
 export const getNews = (req, res) => {
-  News.find()
+  News.find().sort({ date: -1 })
     .then((news) => res.status(200).json(news))
     .catch((error) => res.status(400).json({ message: error }));
 };
