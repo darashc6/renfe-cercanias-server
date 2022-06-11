@@ -32,12 +32,9 @@ export const sendCustomerServiceForm = (req, res) => {
   }
 
   const transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com",
-    secureConnection: false, 
-    port: 587,
-    tls: {
-      ciphers:'SSLv3'
-   },
+    host: 'smtp.zoho.eu',
+    port: 465,
+    secure: true, // use SSL
     auth: {
       user: process.env.NODEMAILER_USER,
       pass: process.env.NODEMAILER_PASS,
