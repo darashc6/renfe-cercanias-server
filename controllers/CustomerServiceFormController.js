@@ -72,7 +72,6 @@ export const sendCustomerServiceForm = (req, res) => {
         .sendMail(mailOptionsCopy)
         .then((info) => {
           res.status(200).json({ message: "Form succesfully sent" });
-          console.log(info);
         })
         .catch((error) => {
           console.error(error);
