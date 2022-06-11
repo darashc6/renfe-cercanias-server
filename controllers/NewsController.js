@@ -1,7 +1,8 @@
 import News from "../models/News.js";
 
 export const getNews = (req, res) => {
-  News.find().sort({ date: -1 })
+  News.find()
+    .sort({ date: -1 })
     .then((news) => res.status(200).json(news))
     .catch((error) => res.status(400).json({ message: error }));
 };
@@ -25,6 +26,12 @@ export const getSingleNews = (req, res) => {
   const { id } = req.params;
 
   News.findById(id)
-    .then((singleNews) => res.status(200).json(singleNews))
+    .then((singleNews) => {
+      if (!singleNews) {
+        return res.status(404).json({ message: "Not found" });
+      }
+
+      res.status(200).json(singleNews);
+    })
     .catch((error) => res.status(404).json({ message: error }));
 };
