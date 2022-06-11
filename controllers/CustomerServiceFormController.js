@@ -32,7 +32,12 @@ export const sendCustomerServiceForm = (req, res) => {
   }
 
   const transporter = nodemailer.createTransport({
-    service: "hotmail",
+    host: "smtp-mail.outlook.com",
+    secureConnection: false, 
+    port: 587,
+    tls: {
+      ciphers:'SSLv3'
+   },
     auth: {
       user: process.env.NODEMAILER_USER,
       pass: process.env.NODEMAILER_PASS,
